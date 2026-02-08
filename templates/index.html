@@ -1,0 +1,26 @@
+<form action="/add" method="post">
+    Task:
+    <input name="title">
+
+    Priority:
+    <select name="priority">
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+    </select>
+
+    Deadline:
+    <input type="date" name="date">
+
+    <button>Add</button>
+</form>
+
+<hr>
+
+{% for t in tasks %}
+<div class="task">
+    {{t[1]}} - <b>{{t[2]}}</b> - {{t[3]}}
+
+    <a href="/delete/{{t[0]}}">❌ Delete</a>
+</div>
+{% endfor %}
